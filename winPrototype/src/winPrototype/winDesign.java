@@ -62,6 +62,8 @@ public class winDesign {
 		JButton btnNewButton = new JButton("Get Started");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				UserStats newWindow = new UserStats();
+				newWindow.displayStatsWindow();
 			}
 		});
 		btnNewButton.setBounds(82, 322, 111, 33);
