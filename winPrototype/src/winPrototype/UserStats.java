@@ -11,20 +11,23 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Window.Type;
+import java.awt.SystemColor;
+import java.awt.Color;
 
 public class UserStats {
 
-	private JFrame frame;
+	private JFrame frmWin;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void displayStatsWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					UserStats window = new UserStats();
-					window.frame.setVisible(true);
+					window.frmWin.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,9 +46,12 @@ public class UserStats {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 297, 475);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWin = new JFrame();
+		frmWin.getContentPane().setBackground(SystemColor.textHighlight);
+		frmWin.setBackground(new Color(51, 153, 255));
+		frmWin.setTitle("Win");
+		frmWin.setBounds(100, 100, 297, 475);
+		frmWin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel lblNewLabel = new JLabel("Week");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -66,7 +72,7 @@ public class UserStats {
 		userPieChart.setIcon(new ImageIcon("C:\\Users\\AnaJacqueline\\Pictures\\userPieChart.PNG"));
 		
 		JButton btnNewButton = new JButton("View My Profile");
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(frmWin.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -111,6 +117,6 @@ public class UserStats {
 					.addComponent(btnNewButton)
 					.addGap(23))
 		);
-		frame.getContentPane().setLayout(groupLayout);
+		frmWin.getContentPane().setLayout(groupLayout);
 	}
 }
