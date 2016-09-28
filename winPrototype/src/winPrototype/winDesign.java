@@ -25,9 +25,7 @@ public class winDesign {
 	private JTextField usernameTxtField;
 	private JPasswordField passwordField;
 
-	/**
-	 * Launch the application.
-	 */
+	//Launch the application	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,17 +38,12 @@ public class winDesign {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
-	public winDesign() {
+	//Create the application.
+	 public winDesign() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	 
+	//Initialize the contents of the frame
 	private void initialize() {
 		frmWin = new JFrame();
 		frmWin.setTitle("Win");
@@ -61,6 +54,8 @@ public class winDesign {
 		
 		JButton btnNewButton = new JButton("Get Started");
 		btnNewButton.addActionListener(new ActionListener() {
+			//creates a new object of the class UserStats, which 
+			//pops up a new window upon the user clicking on bnNewButton 
 			public void actionPerformed(ActionEvent e) {
 				UserStats newWindow = new UserStats();
 				newWindow.displayStatsWindow();
