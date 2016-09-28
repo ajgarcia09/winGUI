@@ -12,11 +12,17 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import java.awt.TextArea;
 import java.awt.Label;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class winDesign {
 
-	private JFrame frame;
-	private JTextField textField;
+	private JFrame frmWin;
+	private JTextField usernameTxtField;
 	private JPasswordField passwordField;
 
 	/**
@@ -27,7 +33,7 @@ public class winDesign {
 			public void run() {
 				try {
 					winDesign window = new winDesign();
-					window.frame.setVisible(true);
+					window.frmWin.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,34 +52,55 @@ public class winDesign {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 297, 475);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmWin = new JFrame();
+		frmWin.setTitle("Win");
+		frmWin.getContentPane().setBackground(SystemColor.textHighlight);
+		frmWin.setBounds(100, 100, 297, 475);
+		frmWin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWin.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Get Started");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setBounds(82, 322, 111, 33);
-		frame.getContentPane().add(btnNewButton);
+		frmWin.getContentPane().add(btnNewButton);
 		
-		textField = new JTextField();
-		textField.setBounds(67, 232, 145, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		usernameTxtField = new JTextField();
+		usernameTxtField.setBounds(67, 232, 145, 20);
+		frmWin.getContentPane().add(usernameTxtField);
+		usernameTxtField.setColumns(10);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(67, 291, 145, 20);
-		frame.getContentPane().add(passwordField);
+		frmWin.getContentPane().add(passwordField);
 		
-		Label label = new Label("Username");
-		label.setBounds(67, 204, 62, 22);
-		frame.getContentPane().add(label);
+		Label usernameLabel = new Label("Username");
+		usernameLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		usernameLabel.setBounds(67, 204, 62, 22);
+		frmWin.getContentPane().add(usernameLabel);
 		
-		Label label_1 = new Label("Password");
-		label_1.setBounds(67, 263, 62, 22);
-		frame.getContentPane().add(label_1);
+		Label passwordLabel = new Label("Password");
+		passwordLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		passwordLabel.setBounds(67, 263, 62, 22);
+		frmWin.getContentPane().add(passwordLabel);
 		
-		Label label_2 = new Label("Win");
-		label_2.setBounds(31, 34, 62, 22);
-		frame.getContentPane().add(label_2);
+		Label winLabel = new Label("Win");
+		winLabel.setForeground(SystemColor.window);
+		winLabel.setFont(new Font("Tahoma", Font.BOLD, 54));
+		winLabel.setBounds(29, 70, 135, 75);
+		frmWin.getContentPane().add(winLabel);
+		
+		Label winLogo = new Label("Set goals. Reach them. Be the best version of you.");
+		winLogo.setForeground(SystemColor.window);
+		winLogo.setFont(new Font("Tahoma", Font.BOLD, 10));
+		winLogo.setBounds(10, 151, 261, 47);
+		frmWin.getContentPane().add(winLogo);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\AnaJacqueline\\Pictures\\medalLogoSmall.PNG"));
+		label.setBounds(170, 51, 71, 94);
+		frmWin.getContentPane().add(label);
 	}
 }
