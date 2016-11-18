@@ -22,7 +22,7 @@ import javax.swing.ImageIcon;
 public class winDesign {
 
 	private JFrame frmWin;
-	private JTextField usernameTxtField;
+	private JTextField usernameField;
 	private JPasswordField passwordField;
 
 	//Launch the application	
@@ -48,26 +48,26 @@ public class winDesign {
 		frmWin = new JFrame();
 		frmWin.setTitle("Win");
 		frmWin.getContentPane().setBackground(SystemColor.textHighlight);
-		frmWin.setBounds(100, 100, 297, 475);
+		frmWin.setBounds(100, 100, 295, 475);
 		frmWin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWin.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("Get Started");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton loginButton = new JButton("Log in");
+		loginButton.addActionListener(new ActionListener() {
 			//creates a new object of the class UserStats, which 
-			//pops up a new window upon the user clicking on bnNewButton 
+			//pops up a new window upon the user clicking on getStartedButton 
 			public void actionPerformed(ActionEvent e) {
 				UserStats newWindow = new UserStats();
 				newWindow.displayStatsWindow();
 			}
 		});
-		btnNewButton.setBounds(82, 322, 111, 33);
-		frmWin.getContentPane().add(btnNewButton);
+		loginButton.setBounds(82, 322, 111, 33);
+		frmWin.getContentPane().add(loginButton);
 		
-		usernameTxtField = new JTextField();
-		usernameTxtField.setBounds(67, 232, 145, 20);
-		frmWin.getContentPane().add(usernameTxtField);
-		usernameTxtField.setColumns(10);
+		usernameField = new JTextField();
+		usernameField.setBounds(67, 232, 145, 20);
+		frmWin.getContentPane().add(usernameField);
+		usernameField.setColumns(10);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(67, 291, 145, 20);
@@ -89,15 +89,19 @@ public class winDesign {
 		winLabel.setBounds(29, 70, 135, 75);
 		frmWin.getContentPane().add(winLabel);
 		
-		Label winLogo = new Label("Set goals. Reach them. Be the best version of you.");
-		winLogo.setForeground(SystemColor.window);
-		winLogo.setFont(new Font("Tahoma", Font.BOLD, 10));
-		winLogo.setBounds(10, 151, 261, 47);
-		frmWin.getContentPane().add(winLogo);
+		Label mottoLabel = new Label("Set goals. Reach them. Be the best version of you.");
+		mottoLabel.setForeground(SystemColor.window);
+		mottoLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
+		mottoLabel.setBounds(10, 151, 261, 47);
+		frmWin.getContentPane().add(mottoLabel);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\AnaJacqueline\\Pictures\\medalLogoSmall.PNG"));
-		label.setBounds(170, 51, 71, 94);
-		frmWin.getContentPane().add(label);
+		JLabel medalLabel = new JLabel("");
+		medalLabel.setIcon(new ImageIcon("C:\\Users\\AnaJacqueline\\Pictures\\medalLogoSmall.PNG"));
+		medalLabel.setBounds(170, 51, 71, 94);
+		frmWin.getContentPane().add(medalLabel);
+		
+		JButton createAccountButton = new JButton("Create Account");
+		createAccountButton.setBounds(82, 366, 111, 33);
+		frmWin.getContentPane().add(createAccountButton);
 	}
 }
