@@ -72,6 +72,8 @@ public class LogRunWindow {
 		JButton logRunButton = new JButton("Log Run");
 		/**Creates a new Run object (with runDistance
 		 * and runDuration fields) when logRunButton is clicked.
+		 * It also opens a new window displaying that a workout was
+		 * successfully logged
 		 * 
 		 */
 		logRunButton.addActionListener(new ActionListener() {

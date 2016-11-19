@@ -118,6 +118,12 @@ public class LogSwimWindow {
 		numCyclesField.setColumns(10);
 		
 		JButton logSwimButton = new JButton("Log Swim");
+		/**Creates a new Swim object (with swimDuration,
+		 * numLaps,numCycles fields) when logSwimButton is clicked.
+		 * It also opens a new window displaying that a workout was
+		 * successfully logged
+		 * 
+		 */
 		logSwimButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				user1.logSwim(swimDuration, numLaps,numCycles);
