@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
 
 public class ConnectBand {
 
@@ -53,21 +54,19 @@ public class ConnectBand {
 		bandLabel.setBounds(22, 10, 235, 75);
 		connectBandFrame.getContentPane().add(bandLabel);
 		
-		Label bluetoothLabel = new Label("Make sure your band is charged"
-				+ "and Bluetooth on your device is on, then tap Connect Band");
-		bluetoothLabel.setForeground(SystemColor.window);
-		bluetoothLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
-		bluetoothLabel.setBounds(10, 64, 261, 60);
-		connectBandFrame.getContentPane().add(bluetoothLabel);
-		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\AnaJacqueline\\Documents\\Adv OOP\\stuffForGUI\\band2.jpg"));
-		lblNewLabel.setBounds(26, 130, 231, 208);
+		lblNewLabel.setIcon(new ImageIcon(ConnectBand.class.getResource("/winPrototype/fitBandicon.png")));
+		lblNewLabel.setBounds(22, 109, 235, 213);
 		connectBandFrame.getContentPane().add(lblNewLabel);
 		
 		JButton connectButton = new JButton("Connect Band");
 		connectButton.setBounds(88, 349, 106, 35);
 		connectBandFrame.getContentPane().add(connectButton);
+		
+		JTextArea instructionArea = new JTextArea();
+		instructionArea.setText("Make sure your band is charged and your device's Bluetooth is enabled");
+		instructionArea.setBounds(54, 60, 140, 50);
+		connectBandFrame.getContentPane().add(instructionArea);
 		
 	}
 }

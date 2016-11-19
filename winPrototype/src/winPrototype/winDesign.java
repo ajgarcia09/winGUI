@@ -96,7 +96,7 @@ public class winDesign {
 		frmWin.getContentPane().add(mottoLabel);
 		
 		JLabel medalLabel = new JLabel("");
-		medalLabel.setIcon(new ImageIcon("C:\\Users\\AnaJacqueline\\Pictures\\medalLogoSmall.PNG"));
+		medalLabel.setIcon(new ImageIcon(winDesign.class.getResource("/winPrototype/medalLogoSmall.PNG")));
 		medalLabel.setBounds(170, 51, 71, 94);
 		frmWin.getContentPane().add(medalLabel);
 		
