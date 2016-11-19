@@ -1,4 +1,5 @@
 package winPrototype;
+import win.*;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -14,10 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LogActivityWindow {
 
 	private JFrame logActivityFrame;
+	private User user1 = new User(123, "Ana", "ajgarcia09","anita@gmail.com","honeyButterBiscuit",false);
 
 	/**
 	 * Launch the application.
@@ -41,6 +45,7 @@ public class LogActivityWindow {
 	public LogActivityWindow() {
 		initialize();
 	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -52,12 +57,30 @@ public class LogActivityWindow {
 		
 		
 		
-		JButton btnWorkout = new JButton("");
-		btnWorkout.setIcon(new ImageIcon(LogActivityWindow.class.getResource("/winPrototype/sleepOption.png")));
+		JButton sleepButton = new JButton("");
+		/**call LogSleepWindow if sleepButton is clicked
+		 * 
+		 */
+		sleepButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogSleepWindow sleepWindow = new LogSleepWindow();
+				sleepWindow.displaySleepWindow();
+			}
+		});
+		sleepButton.setIcon(new ImageIcon(LogActivityWindow.class.getResource("/winPrototype/sleepOption.png")));
 		
 		JLabel logActivityLabel = new JLabel("");
 		
 		JButton workoutButton = new JButton("");
+		/**call LogWorkoutWindow if workoutButton is clicked
+		 * 
+		 */
+		workoutButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				LogWorkoutWindow wktWindow = new LogWorkoutWindow();
+				wktWindow.displayWorkoutWindow();
+			}
+		});
 		workoutButton.setIcon(new ImageIcon(LogActivityWindow.class.getResource("/winPrototype/workoutOption.png")));
 		
 		JLabel workoutLabel = new JLabel("Workout");
@@ -77,7 +100,7 @@ public class LogActivityWindow {
 					.addContainerGap(58, Short.MAX_VALUE)
 					.addComponent(workoutButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
 					.addGap(27)
-					.addComponent(btnWorkout, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
+					.addComponent(sleepButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
 					.addGap(48))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(70)
@@ -102,7 +125,7 @@ public class LogActivityWindow {
 					.addGap(82)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(workoutButton, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnWorkout))
+						.addComponent(sleepButton))
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(workoutLabel)

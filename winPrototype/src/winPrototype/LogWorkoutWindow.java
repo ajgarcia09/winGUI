@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LogWorkoutWindow {
 
@@ -21,7 +23,7 @@ public class LogWorkoutWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void displayWorkoutWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -51,9 +53,27 @@ public class LogWorkoutWindow {
 		logWorkoutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton swimButton = new JButton("");
+		/**display LogSwimWindow if swimButton is clicked
+		 * 
+		 */
+		swimButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogSwimWindow swimWindow = new LogSwimWindow();
+				swimWindow.displaySwimWindow();
+			}
+		});
 		swimButton.setIcon(new ImageIcon(LogWorkoutWindow.class.getResource("/winPrototype/swimIcon.png")));
 		
 		JButton runButton = new JButton("");
+		/**display LogSwimWindow if swimButton is clicked
+		 * 
+		 */
+		runButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogRunWindow runWindow = new LogRunWindow();
+				runWindow.displayRunWindow();
+			}
+		});
 		runButton.setIcon(new ImageIcon(LogWorkoutWindow.class.getResource("/winPrototype/workoutOption.png")));
 		
 		JLabel kindWorkoutLabel = new JLabel("What kind of workout did you do?");
