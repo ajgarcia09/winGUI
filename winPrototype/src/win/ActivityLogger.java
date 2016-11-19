@@ -94,16 +94,8 @@ public class ActivityLogger {
 	 * @return s1, an object of type Sleep
 	 * @see Sleep
 	 */
-	public Sleep logSleep(){
-		boolean isNap = false;
-		System.out.println("Would you like to log a nap?: ");
-		String nap = userInput.nextLine();
-		if(nap.equals("yes"))
-			isNap = true;
-		System.out.println("Length of sleep in minutes: ");
-		int duration = userInput.nextInt();
-		Sleep s1 = new Sleep(accountID, duration, false, isNap);
-		userInput.nextLine();
+	public Sleep logSleep(boolean isNap, int sleepDuration){		
+		Sleep s1 = new Sleep(accountID, sleepDuration, false, isNap);		
 		return s1;
 	}
 

@@ -351,4 +351,10 @@ public class User {
 		
 	}
 
+	public void logSleep(boolean isNap, int sleepDuration) {
+		Activity a1 = this.activityLogger.logSleep(isNap, sleepDuration);
+		addActivity(a1);
+		
+	}
+
 }
