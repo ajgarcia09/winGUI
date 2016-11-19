@@ -187,17 +187,17 @@ public class User {
 	 * @see User#activities
 	 * @see ActivityLogger
 	 */
-	public void logActivity(){
-		//System.out.println("now in user.logActivity");
-		Activity a1 = this.activityLogger.logActivity();
-		addActivity(a1);
-	}
+//	public void logActivity(){
+//		//System.out.println("now in user.logActivity");
+//		Activity a1 = this.activityLogger.logActivity();
+//		addActivity(a1);
+//	}
 	
-	public void logWorkout(){
-		//System.out.println("now in user.logActivity");
-		Activity a1 = this.activityLogger.logWorkout();
-		addActivity(a1);
-	}
+//	public void logWorkout(){
+//		//System.out.println("now in user.logActivity");
+//		Activity a1 = this.activityLogger.logWorkout();
+//		addActivity(a1);
+//	}
 	
 
 	/**Adds an activity to the user's set of activities
@@ -227,6 +227,9 @@ public class User {
 		for(Iterator it = activities.iterator(); it.hasNext();){
 			Activity activity = (Activity)it.next();
 			activity.printActivityType(activity);
+			//for debugging using the frames
+			System.out.println(activity.getDuration());
+			
 		}
 	}
 	
@@ -334,6 +337,18 @@ public class User {
 	
 	public MonthlyTrend newMonthlyTrend(){
 		return null;
+	}
+
+	public void logRun(int runDistance, int runDuration) {
+		Activity a1 = this.activityLogger.logRun(runDistance, runDuration);
+		addActivity(a1);
+		
+	}
+
+	public void logSwim(int swimDuration, int numLaps, int numCycles) {
+		Activity a1 = this.activityLogger.logSwim(swimDuration, numLaps, numCycles);
+		addActivity(a1);
+		
 	}
 
 }

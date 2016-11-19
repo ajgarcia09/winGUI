@@ -22,24 +22,24 @@ public class ActivityLogger {
 	 * @see ActivityLogger#logSleep()
 	 * 
 	 */
-	public Activity logActivity(){
-		System.out.println("What kind of activity would you like to log?");
-		System.out.println("Workout or Sleep?");
-		String choice = userInput.nextLine();
-		if(choice.equals("workout")){
-			Workout w1 = logWorkout();
-			return w1;
-		}			
-		if(choice.equals("sleep")){
-			Sleep s1 = logSleep();
-			return s1;
-		}
-		else{
-			System.out.println("Couldn't log activity");
-		}
-
-		return null;
-	}
+//	public Activity logActivity(){
+//		System.out.println("What kind of activity would you like to log?");
+//		System.out.println("Workout or Sleep?");
+//		String choice = userInput.nextLine();
+//		if(choice.equals("workout")){
+//			Workout w1 = logWorkout();
+//			return w1;
+//		}			
+//		if(choice.equals("sleep")){
+//			Sleep s1 = logSleep();
+//			return s1;
+//		}
+//		else{
+//			System.out.println("Couldn't log activity");
+//		}
+//
+//		return null;
+//	}
 	/**Return an instance of Workout
 	 * 
 	 * @return Run, Swim (Workout subclasses) or null if there was an error 
@@ -47,19 +47,19 @@ public class ActivityLogger {
 	 * @see logRun()
 	 * @see logSwim()
 	 */
-	public Workout logWorkout (){
-		System.out.println("What kind of workout did you do?");
-		String workoutChoice = userInput.nextLine();
-		if(workoutChoice.equals("run")){
-			Run r1 =  logRun();
-			return r1;
-		}
-		if(workoutChoice.equals("swim")){
-			Swim sw1 = logSwim();		
-			return sw1;
-		}
-		return null;
-	}
+//	public Workout logWorkout (){
+//		System.out.println("What kind of workout did you do?");
+//		String workoutChoice = userInput.nextLine();
+//		if(workoutChoice.equals("run")){
+//			Run r1 =  logRun();
+//			return r1;
+//		}
+//		if(workoutChoice.equals("swim")){
+//			Swim sw1 = logSwim();		
+//			return sw1;
+//		}
+//		return null;
+//	}
 
 	/**Prompt the user for details 
 	 * on his or her run and return an 
@@ -67,13 +67,8 @@ public class ActivityLogger {
 	 * @return r1, a newly created Run instance
 	 * @see Run
 	 */
-	public Run logRun(){
-		System.out.println("Run duration in minutes: ");
-		int duration = userInput.nextInt();
-		System.out.println("Number of Km run: ");
-		int km = userInput.nextInt();
-		Run r1 = new Run (accountID, duration, false, km);
-		userInput.nextLine();
+	public Run logRun(int runDistance, int runDuration){
+		Run r1 = new Run (accountID, runDuration, false, runDistance);
 		return r1;
 	}
 
@@ -83,19 +78,13 @@ public class ActivityLogger {
 	 * @return sw1, a new Swim instance
 	 * @see Swim
 	 */
-	public Swim logSwim(){
-		System.out.println("Swim duration in minutes: ");
-		int duration = userInput.nextInt();
-		System.out.println("Number of laps: ");
-		int numLaps = userInput.nextInt();
-		System.out.println("Number of cycles: ");
-		int numCycles = userInput.nextInt();
-		Swim sw1 = new Swim(accountID,duration,false);
+	public Swim logSwim(int swimDuration, int numLaps, int numCycles){
+		
+		Swim sw1 = new Swim(accountID,swimDuration,false);
 		sw1.setNumLaps(numLaps);
 		if(numCycles > 0){
 			sw1.setNumCycles(numCycles);
 		}
-		userInput.nextLine();
 		return sw1;		
 	}
 
