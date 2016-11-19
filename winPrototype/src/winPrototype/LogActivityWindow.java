@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 public class LogActivityWindow {
 
 	private JFrame logActivityFrame;
-	private User user1 = new User(123, "Ana", "ajgarcia09","anita@gmail.com","honeyButterBiscuit",false);
+	
 
 	/**
 	 * Launch the application.
@@ -53,8 +53,7 @@ public class LogActivityWindow {
 	private void initialize() {
 		logActivityFrame = new JFrame();
 		logActivityFrame.setBounds(100, 100, 295, 475);
-		logActivityFrame.getContentPane().setBackground(UIManager.getColor("textHighlight"));
-		
+		logActivityFrame.getContentPane().setBackground(SystemColor.textHighlight);
 		
 		
 		JButton sleepButton = new JButton("");

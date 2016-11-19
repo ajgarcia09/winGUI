@@ -49,7 +49,7 @@ public class LogWorkoutWindow {
 	private void initialize() {
 		logWorkoutFrame = new JFrame();
 		logWorkoutFrame.setBounds(100, 100, 295, 475);
-		logWorkoutFrame.getContentPane().setBackground(UIManager.getColor("textHighlight"));
+		logWorkoutFrame.getContentPane().setBackground(SystemColor.textHighlight);
 		logWorkoutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton swimButton = new JButton("");

@@ -9,6 +9,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.SystemColor;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -49,7 +50,7 @@ public class LogSleepWindow {
 	private void initialize() {
 		logSleepFrame = new JFrame();
 		logSleepFrame.setBounds(100, 100, 295, 475);
-		logSleepFrame.getContentPane().setBackground(UIManager.getColor("textHighlight"));
+		logSleepFrame.getContentPane().setBackground(SystemColor.textHighlight);
 		logSleepFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel sleepLabel = new JLabel("");

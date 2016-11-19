@@ -3,6 +3,7 @@ package winPrototype;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.SystemColor;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -120,7 +121,7 @@ public class LogSwimWindow {
 		);
 		logSwimFrame.getContentPane().setLayout(groupLayout);
 		logSwimFrame.setBounds(100, 100, 295, 475);
-		logSwimFrame.getContentPane().setBackground(UIManager.getColor("textHighlight"));
+		logSwimFrame.getContentPane().setBackground(SystemColor.textHighlight);
 		logSwimFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
