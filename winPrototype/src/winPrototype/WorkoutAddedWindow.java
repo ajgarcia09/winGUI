@@ -69,7 +69,7 @@ public class WorkoutAddedWindow {
 							.addComponent(wktAddedLabel))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(78)
-							.addComponent(backHomeButton, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(backHomeButton, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(13, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
@@ -77,9 +77,9 @@ public class WorkoutAddedWindow {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(276)
 					.addComponent(wktAddedLabel)
-					.addPreferredGap(ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+					.addGap(46)
 					.addComponent(backHomeButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-					.addGap(44))
+					.addContainerGap(44, Short.MAX_VALUE))
 		);
 		workoutAddedFrame.getContentPane().setLayout(groupLayout);
 		workoutAddedFrame.setBounds(100, 100, 295, 475);

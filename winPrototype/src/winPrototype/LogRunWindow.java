@@ -114,6 +114,14 @@ public class LogRunWindow {
 		JLabel runImageLabel = new JLabel("");
 		runImageLabel.setIcon(new ImageIcon(LogRunWindow.class.getResource("/winPrototype/runIcon.png")));
 		
+		JLabel hitEnterLabel = new JLabel("Enter a value and hit Enter");
+		hitEnterLabel.setForeground(SystemColor.window);
+		hitEnterLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
+		
+		JLabel hitEnterLabel2 = new JLabel("Enter a value and hit Enter");
+		hitEnterLabel2.setForeground(Color.WHITE);
+		hitEnterLabel2.setFont(new Font("Tahoma", Font.BOLD, 10));
+		
 		
 		GroupLayout groupLayout = new GroupLayout(logRunFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -126,7 +134,9 @@ public class LogRunWindow {
 								.addComponent(runDurationField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(runDistanceField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblHowManyKm, GroupLayout.PREFERRED_SIZE, 206, GroupLayout.PREFERRED_SIZE)
-								.addComponent(runLengthLabel, GroupLayout.PREFERRED_SIZE, 206, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(runLengthLabel, GroupLayout.PREFERRED_SIZE, 206, GroupLayout.PREFERRED_SIZE)
+								.addComponent(hitEnterLabel)
+								.addComponent(hitEnterLabel2, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(103)
 							.addComponent(runImageLabel, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)))
@@ -141,11 +151,15 @@ public class LogRunWindow {
 					.addComponent(runLengthLabel, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(runDurationField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(43)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(hitEnterLabel)
+					.addGap(18)
 					.addComponent(lblHowManyKm, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(runDistanceField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(175, Short.MAX_VALUE))
+					.addGap(18)
+					.addComponent(hitEnterLabel2, GroupLayout.PREFERRED_SIZE, 13, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(145, Short.MAX_VALUE))
 		);
 		logRunFrame.getContentPane().setLayout(groupLayout);
 	}
