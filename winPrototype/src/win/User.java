@@ -14,9 +14,10 @@ import java.util.*;
 public class User {
 	private int accountID;
 	private String name;
+	private String gender;
 	private String userName;
 	private String email;
-	private String password;
+	private String password;	
 	private boolean isNewMember;
 	private int age;
 	private int height;
@@ -36,9 +37,10 @@ public class User {
 	private HashSet<WeeklyTrend> weeklyTrends = new HashSet<WeeklyTrend>();
 	private HashSet<MonthlyTrend> MonthlyTrends = new HashSet<MonthlyTrend>();
 	
-	public User(int accountID, String name, String userName, String email, String password, boolean isNewMember) {
+	public User(int accountID, String name, String gender, String userName, String email, String password, boolean isNewMember) {
 		this.accountID = accountID;
 		this.name = name;
+		this.gender =gender;
 		this.userName = userName;
 		this.email = email;
 		this.password = password;
@@ -57,6 +59,10 @@ public class User {
  */
 	public String getName() {
 		return name;
+	}
+	
+	public String getGender(){
+		return gender;
 	}
 	
 	/**
@@ -122,6 +128,10 @@ public class User {
  */
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void setGender(String gender){
+		this.gender = gender;
 	}
 /**
  * 
