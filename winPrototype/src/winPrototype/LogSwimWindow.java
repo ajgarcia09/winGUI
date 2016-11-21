@@ -160,6 +160,7 @@ public class LogSwimWindow {
 			public void actionPerformed(ActionEvent e) {
 				LogWorkoutWindow logWorkout = new LogWorkoutWindow();
 				logWorkout.displayWorkoutWindow();
+				System.out.println("Test change");
 			}
 		});
 		
