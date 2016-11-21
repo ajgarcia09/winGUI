@@ -31,7 +31,9 @@ public class LogSleepWindow {
 	private JLabel hitEnterLabel1;
 	private JLabel hitEnterLabel2;
 	private JButton btnLogSleep;
-	private User user1 = new User(123, "Ana", "ajgarcia09","anita@gmail.com","honeyButterBiscuit",false);
+	private User user1 = new User(123, "Ana","female", "ajgarcia09","anita@gmail.com","honeyButterBiscuit",false);
+	private JButton goBackButton;
+	private JButton cancelButton;
 
 
 	/**
@@ -129,6 +131,10 @@ public class LogSleepWindow {
 				sAddedWdw.displaySleepAddedwindow();
 			}
 		});
+		
+		goBackButton = new JButton("Go Back");
+		
+		cancelButton = new JButton("Cancel");
 		GroupLayout groupLayout = new GroupLayout(logSleepFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -148,13 +154,21 @@ public class LogSleepWindow {
 								.addComponent(hitEnterLabel1, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(79)
-							.addComponent(btnLogSleep, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(btnLogSleep, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(goBackButton, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(98)
+							.addComponent(cancelButton, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(53, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(38)
+					.addContainerGap()
+					.addComponent(goBackButton)
+					.addGap(4)
 					.addComponent(sleepLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
 					.addGap(41)
 					.addComponent(napLabel, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
@@ -170,7 +184,9 @@ public class LogSleepWindow {
 					.addComponent(hitEnterLabel2, GroupLayout.PREFERRED_SIZE, 13, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
 					.addComponent(btnLogSleep, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-					.addGap(47))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(cancelButton)
+					.addGap(18))
 		);
 		logSleepFrame.getContentPane().setLayout(groupLayout);
 	}

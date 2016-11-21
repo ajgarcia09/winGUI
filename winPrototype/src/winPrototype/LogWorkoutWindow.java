@@ -83,8 +83,34 @@ public class LogWorkoutWindow {
 		logWorkoutFrame.getContentPane().add(kindWorkoutLabel);
 		
 		JLabel lblSwim = new JLabel("Swim");
+		lblSwim.setForeground(SystemColor.window);
+		lblSwim.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JLabel lblRun = new JLabel("Run");
+		lblRun.setForeground(SystemColor.window);
+		lblRun.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
+		JButton GoBackButton = new JButton("Go Back");
+		/**takes user back to the LogActivity window
+		 * 
+		 */
+		GoBackButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogActivityWindow logWindow = new LogActivityWindow();
+				logWindow.displayLogActivityWindow();
+			}
+		});
+		
+		JButton cancelButton = new JButton("Cancel");
+		/**takes user back to the home page
+		 * 
+		 */
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProfileScreen ProfileScreen = new ProfileScreen();
+				ProfileScreen.displayProfileScreen();
+			}
+		});
 		
 		GroupLayout groupLayout = new GroupLayout(logWorkoutFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -92,35 +118,46 @@ public class LogWorkoutWindow {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(kindWorkoutLabel, GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(44)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(swimButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(10)
-									.addComponent(lblSwim)))
+							.addComponent(swimButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
 							.addGap(35)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblRun)
-								.addComponent(runButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap())
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+							.addComponent(runButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(54)
+							.addComponent(lblSwim)
+							.addGap(74)
+							.addComponent(lblRun)))
+					.addContainerGap(54, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(20, Short.MAX_VALUE)
+					.addComponent(kindWorkoutLabel, GroupLayout.PREFERRED_SIZE, 259, GroupLayout.PREFERRED_SIZE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
+					.addComponent(GoBackButton)
+					.addContainerGap(198, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(169, Short.MAX_VALUE)
+					.addComponent(cancelButton, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
+					.addGap(32))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(18)
+					.addComponent(GoBackButton)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(kindWorkoutLabel, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(swimButton, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 						.addComponent(runButton, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGap(11)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblSwim)
 						.addComponent(lblRun))
-					.addGap(235))
+					.addGap(180)
+					.addComponent(cancelButton)
+					.addContainerGap(31, Short.MAX_VALUE))
 		);
 		logWorkoutFrame.getContentPane().setLayout(groupLayout);
 	}

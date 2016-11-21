@@ -27,6 +27,10 @@ public class LogActivityWindow {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		displayLogActivityWindow();
+	}
+
+	public static void displayLogActivityWindow(){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -38,7 +42,6 @@ public class LogActivityWindow {
 			}
 		});
 	}
-
 	/**
 	 * Create the application.
 	 */
@@ -83,8 +86,12 @@ public class LogActivityWindow {
 		workoutButton.setIcon(new ImageIcon(LogActivityWindow.class.getResource("/winPrototype/workoutOption.png")));
 		
 		JLabel workoutLabel = new JLabel("Workout");
+		workoutLabel.setForeground(SystemColor.window);
+		workoutLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JLabel sleepLabel = new JLabel("Sleep");
+		sleepLabel.setForeground(SystemColor.window);
+		sleepLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JLabel logPromptLabel = new JLabel("What would you like to log?");
 		logPromptLabel.setForeground(SystemColor.window);
@@ -92,36 +99,49 @@ public class LogActivityWindow {
 		logPromptLabel.setBounds(29, 70, 135, 75);
 		logActivityFrame.getContentPane().add(logPromptLabel);
 		
+		JButton goBackButton = new JButton("Go Back");
+		
+		JButton cancelButton = new JButton("Cancel");
+		
 		GroupLayout groupLayout = new GroupLayout(logActivityFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(58, Short.MAX_VALUE)
-					.addComponent(workoutButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-					.addGap(27)
-					.addComponent(sleepButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-					.addGap(48))
+					.addGap(21)
+					.addComponent(logActivityLabel)
+					.addContainerGap(258, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(25, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(logPromptLabel)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(workoutButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
+							.addGap(27)
+							.addComponent(sleepButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)))
+					.addGap(48))
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(goBackButton, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(198, Short.MAX_VALUE))
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 					.addGap(70)
 					.addComponent(workoutLabel)
 					.addGap(59)
-					.addComponent(sleepLabel)
-					.addContainerGap(83, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-					.addGap(21)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(logPromptLabel)
-						.addComponent(logActivityLabel))
-					.addContainerGap(212, Short.MAX_VALUE))
+						.addComponent(cancelButton, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
+						.addComponent(sleepLabel))
+					.addContainerGap(18, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(logActivityLabel)
-					.addGap(21)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(goBackButton)
+					.addGap(40)
 					.addComponent(logPromptLabel)
-					.addGap(82)
+					.addGap(40)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(workoutButton, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 						.addComponent(sleepButton))
@@ -129,7 +149,9 @@ public class LogActivityWindow {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(workoutLabel)
 						.addComponent(sleepLabel))
-					.addContainerGap(211, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+					.addComponent(cancelButton)
+					.addGap(22))
 		);
 		logActivityFrame.getContentPane().setLayout(groupLayout);
 		logActivityFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

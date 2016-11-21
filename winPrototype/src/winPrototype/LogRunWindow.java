@@ -27,7 +27,7 @@ public class LogRunWindow {
 	private int runDistance;
 	private JTextField runDurationField;
 	private int runDuration;
-	private User user1 = new User(123, "Ana", "ajgarcia09","anita@gmail.com","honeyButterBiscuit",false);
+	private User user1 = new User(123, "Ana", "female", "ajgarcia09","anita@gmail.com","honeyButterBiscuit",false);
 
 	/**
 	 * Launch the application.
@@ -124,6 +124,28 @@ public class LogRunWindow {
 		hitEnterLabel2.setForeground(Color.WHITE);
 		hitEnterLabel2.setFont(new Font("Tahoma", Font.BOLD, 10));
 		
+		JButton goBackButton = new JButton("Go Back");
+		/**takes user back to LogWorkoutWindow
+		 * 
+		 */
+		goBackButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogWorkoutWindow logWorkout = new LogWorkoutWindow();
+				logWorkout.displayWorkoutWindow();
+			}
+		});
+		
+		JButton cancelButton = new JButton("Cancel");
+		/**takes user back to home page
+		 * 
+		 */
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProfileScreen ProfileScreen = new ProfileScreen();
+				ProfileScreen.displayProfileScreen();
+			}
+		});
+		
 		
 		GroupLayout groupLayout = new GroupLayout(logRunFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -140,15 +162,25 @@ public class LogRunWindow {
 								.addComponent(hitEnterLabel)
 								.addComponent(hitEnterLabel2, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(103)
-							.addComponent(runImageLabel, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)))
+							.addContainerGap()
+							.addComponent(goBackButton, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+							.addGap(22)
+							.addComponent(runImageLabel, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(99)
+							.addComponent(cancelButton, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(52, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(20)
-					.addComponent(runImageLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(20)
+							.addComponent(runImageLabel, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(goBackButton)))
 					.addGap(30)
 					.addComponent(runLengthLabel, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -161,7 +193,9 @@ public class LogRunWindow {
 					.addComponent(runDistanceField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(hitEnterLabel2, GroupLayout.PREFERRED_SIZE, 13, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(145, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+					.addComponent(cancelButton)
+					.addContainerGap())
 		);
 		logRunFrame.getContentPane().setLayout(groupLayout);
 	}

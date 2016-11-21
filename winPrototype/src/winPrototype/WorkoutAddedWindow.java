@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class WorkoutAddedWindow {
 
@@ -56,30 +58,67 @@ public class WorkoutAddedWindow {
 		wktAddedLabel.setForeground(SystemColor.window);
 		wktAddedLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
-		JButton backHomeButton = new JButton("Back to Home");
+		JButton backProfileButton = new JButton("Back to My Profile");
+		/**takes user back to the homepage
+		 * 
+		 */
+		backProfileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProfileScreen ProfileScreen = new ProfileScreen();
+				ProfileScreen.displayProfileScreen();
+			}
+		});
+		
+		JButton addActivityButton = new JButton("Add Another Activity");
+		/**takes user back to LogActivityWindow
+		 * 
+		 */
+		addActivityButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogActivityWindow logAct = new LogActivityWindow();
+				logAct.displayLogActivityWindow();
+			}
+		});
+		
+		JLabel checkMarkLabel = new JLabel("");
+		checkMarkLabel.setBounds(21, 70, 150, 150);
+		ImageIcon myImage = new ImageIcon("C:\\Users\\AnaJacqueline\\Documents\\Adv OOP\\stuffForGUI\\checkMark_smaller.png");
+		Image img = myImage.getImage();
+		Image newImg = img.getScaledInstance(checkMarkLabel.getWidth(), checkMarkLabel.getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon image = new ImageIcon(newImg);
+		checkMarkLabel.setIcon(image);
 		
 		
 		GroupLayout groupLayout = new GroupLayout(workoutAddedFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(54, Short.MAX_VALUE)
+					.addComponent(checkMarkLabel, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
+					.addGap(39))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(23, Short.MAX_VALUE)
+					.addComponent(wktAddedLabel)
+					.addContainerGap())
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(68)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(20)
-							.addComponent(wktAddedLabel))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(78)
-							.addComponent(backHomeButton, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(13, Short.MAX_VALUE))
+						.addComponent(addActivityButton)
+						.addComponent(backProfileButton, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(78, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(276)
+					.addGap(57)
+					.addComponent(checkMarkLabel, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(wktAddedLabel)
-					.addGap(46)
-					.addComponent(backHomeButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(44, Short.MAX_VALUE))
+					.addGap(52)
+					.addComponent(backProfileButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(addActivityButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(27, Short.MAX_VALUE))
 		);
 		workoutAddedFrame.getContentPane().setLayout(groupLayout);
 		workoutAddedFrame.setBounds(100, 100, 295, 475);

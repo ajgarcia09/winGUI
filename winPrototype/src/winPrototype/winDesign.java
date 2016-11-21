@@ -100,7 +100,7 @@ public class winDesign {
 		medalLabel.setBounds(170, 51, 71, 94);
 		frmWin.getContentPane().add(medalLabel);
 		
-		JButton createAccountButton = new JButton("Create Account");
+		JButton createAccountButton = new JButton("Sign Up");
 		createAccountButton.setBounds(82, 366, 111, 33);
 		frmWin.getContentPane().add(createAccountButton);
 	}
