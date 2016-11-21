@@ -104,6 +104,7 @@ public class HomeScreen {
 			public void actionPerformed(ActionEvent e) {
 				LogActivityWindow logWindow = new LogActivityWindow();
 				logWindow.displayLogActivityWindow();
+				System.out.println("Test change");
 			}
 		});
 		logActivityButton.setBounds(188, 335, 70, 66);

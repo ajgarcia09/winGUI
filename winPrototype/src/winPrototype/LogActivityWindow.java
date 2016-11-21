@@ -107,6 +107,7 @@ public class LogActivityWindow {
 			public void actionPerformed(ActionEvent e) {
 				HomeScreen homeScreen = new HomeScreen();
 				homeScreen.displayHomeScreen();
+				System.out.println("Test change");
 			}
 		});
 		

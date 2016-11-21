@@ -103,6 +103,7 @@ public class MenuWindow {
 			public void actionPerformed(ActionEvent e) {
 				WinLoginWindow logWindow = new WinLoginWindow();
 				logWindow.displayWinLoginWindow();
+				System.out.println("Test change");
 			}
 		});
 		logoutButton.setBounds(231, 389, 38, 36);

@@ -77,6 +77,7 @@ public class WorkoutAddedWindow {
 			public void actionPerformed(ActionEvent e) {
 				LogActivityWindow logAct = new LogActivityWindow();
 				logAct.displayLogActivityWindow();
+				System.out.println("Test change");
 			}
 		});
 		
