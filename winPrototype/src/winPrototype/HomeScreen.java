@@ -14,6 +14,8 @@ import win.User;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class HomeScreen {
 
@@ -25,6 +27,17 @@ public class HomeScreen {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		displayHomeScreen();
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public HomeScreen() {
+		initialize();
+	}
+	
+	public static void displayHomeScreen(){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,13 +48,6 @@ public class HomeScreen {
 				}
 			}
 		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public HomeScreen() {
-		initialize();
 	}
 
 	/**
@@ -57,7 +63,7 @@ public class HomeScreen {
 		Label welcomeLabel = new Label("Welcome, " + user1.getName() + "!");
 		welcomeLabel.setForeground(Color.WHITE);
 		welcomeLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		welcomeLabel.setBounds(19, 26, 154, 36);
+		welcomeLabel.setBounds(19, 10, 154, 36);
 		homeFrame.getContentPane().add(welcomeLabel);
 		
 		JLabel numStepsLabel = new JLabel("10650");
@@ -91,6 +97,15 @@ public class HomeScreen {
 		menuButton.setIcon(resizedMenuIcon);
 		
 		JButton logActivityButton = new JButton("");
+		/**Opens LogActivityWindow upon user clicking on logActivityButton
+		 * 
+		 */
+		logActivityButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogActivityWindow logWindow = new LogActivityWindow();
+				logWindow.displayLogActivityWindow();
+			}
+		});
 		logActivityButton.setBounds(188, 335, 70, 66);
 		homeFrame.getContentPane().add(logActivityButton);
 		ImageIcon logIcon = new ImageIcon("C:\\Users\\AnaJacqueline\\Documents\\Adv OOP\\stuffForGUI\\plusButtonOrange.png");

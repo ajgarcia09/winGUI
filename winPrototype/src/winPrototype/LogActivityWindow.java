@@ -26,9 +26,9 @@ public class LogActivityWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		displayLogActivityWindow();
-	}
+//	public static void main(String[] args) {
+//		displayLogActivityWindow();
+//	}
 
 	public static void displayLogActivityWindow(){
 		EventQueue.invokeLater(new Runnable() {
@@ -99,13 +99,20 @@ public class LogActivityWindow {
 		logPromptLabel.setBounds(29, 70, 135, 75);
 		logActivityFrame.getContentPane().add(logPromptLabel);
 		
-		JButton goBackButton = new JButton("Go Back");
-		
 		JButton cancelButton = new JButton("Cancel");
+		/**take user back to homepage
+		 * 
+		 */
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HomeScreen homeScreen = new HomeScreen();
+				homeScreen.displayHomeScreen();
+			}
+		});
 		
 		GroupLayout groupLayout = new GroupLayout(logActivityFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(21)
 					.addComponent(logActivityLabel)
@@ -119,11 +126,7 @@ public class LogActivityWindow {
 							.addGap(27)
 							.addComponent(sleepButton, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)))
 					.addGap(48))
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(goBackButton, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(198, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(70)
 					.addComponent(workoutLabel)
 					.addGap(59)
@@ -137,9 +140,7 @@ public class LogActivityWindow {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(logActivityLabel)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(goBackButton)
-					.addGap(40)
+					.addGap(69)
 					.addComponent(logPromptLabel)
 					.addGap(40)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)

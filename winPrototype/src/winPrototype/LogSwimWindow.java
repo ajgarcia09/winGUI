@@ -169,8 +169,8 @@ public class LogSwimWindow {
 		 */
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ProfileScreen ProfileScreen = new ProfileScreen();
-				ProfileScreen.displayProfileScreen();
+				HomeScreen homeScreen = new HomeScreen();
+				homeScreen.displayHomeScreen();
 			}
 		});
 		

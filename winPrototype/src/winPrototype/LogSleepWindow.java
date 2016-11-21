@@ -133,8 +133,26 @@ public class LogSleepWindow {
 		});
 		
 		goBackButton = new JButton("Go Back");
+		/**take user back to LogActivityWindow upon clocking goBackButton
+		 * 
+		 */
+		goBackButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogActivityWindow logWindow = new LogActivityWindow();
+				logWindow.displayLogActivityWindow();
+			}
+		});
 		
 		cancelButton = new JButton("Cancel");
+		/**take user back to homepage
+		 * 
+		 */
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HomeScreen homeScreen = new HomeScreen();
+				homeScreen.displayHomeScreen();
+			}
+		});
 		GroupLayout groupLayout = new GroupLayout(logSleepFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -156,11 +174,11 @@ public class LogSleepWindow {
 							.addGap(79)
 							.addComponent(btnLogSleep, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(goBackButton, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(98)
-							.addComponent(cancelButton, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(cancelButton, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(goBackButton, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(53, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(

@@ -58,14 +58,14 @@ public class SleepAddedWindow {
 		sleepAddedLabel.setForeground(SystemColor.window);
 		sleepAddedLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
-		JButton backProfileButton = new JButton("Back to My Profile");
+		JButton backHomeButton = new JButton("Back to Home");
 		/**takes user back to homepage
 		 * 
 		 */
-		backProfileButton.addActionListener(new ActionListener() {
+		backHomeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ProfileScreen ProfileScreen = new ProfileScreen();
-				ProfileScreen.displayProfileScreen();
+				HomeScreen homeScreen = new HomeScreen();
+				homeScreen.displayHomeScreen();
 			}
 		});
 		
@@ -94,21 +94,21 @@ public class SleepAddedWindow {
 		
 		GroupLayout groupLayout = new GroupLayout(sleepAddedFrame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(57, Short.MAX_VALUE)
 					.addComponent(checkMarkLabel, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
 					.addGap(36))
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(34)
 					.addComponent(sleepAddedLabel)
 					.addContainerGap(47, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(71)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(addActivityButton, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
-						.addComponent(backProfileButton, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(75, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(backHomeButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(addActivityButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+					.addContainerGap(64, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
@@ -118,7 +118,7 @@ public class SleepAddedWindow {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(sleepAddedLabel)
 					.addGap(34)
-					.addComponent(backProfileButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addComponent(backHomeButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(addActivityButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 					.addGap(44))

@@ -100,14 +100,14 @@ public class ProfileScreen {
 		membershipLabel.setBounds(85, 158, 184, 19);
 		profileFrame.getContentPane().add(membershipLabel);
 		
-		JButton statsButton = new JButton("");
-		statsButton.setBounds(156, 234, 70, 66);
-		profileFrame.getContentPane().add(statsButton);
-		ImageIcon statsIcon = new ImageIcon("C:\\Users\\AnaJacqueline\\Documents\\Adv OOP\\stuffForGUI\\statsLogo.png");
-		Image statsImg = statsIcon.getImage();
-		Image resizedStats = statsImg.getScaledInstance(statsButton.getWidth(), statsButton.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon resizedStatsIcon = new ImageIcon(resizedStats);
-		statsButton.setIcon(resizedStatsIcon);
+		JButton trendsButton = new JButton("");
+		trendsButton.setBounds(156, 234, 70, 66);
+		profileFrame.getContentPane().add(trendsButton);
+		ImageIcon trendsIcon = new ImageIcon("C:\\Users\\AnaJacqueline\\Documents\\Adv OOP\\stuffForGUI\\trendsLogo.png");
+		Image trendsImg = trendsIcon.getImage();
+		Image resizedtrends = trendsImg.getScaledInstance(trendsButton.getWidth(), trendsButton.getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon resizedtrendsIcon = new ImageIcon(resizedtrends);
+		trendsButton.setIcon(resizedtrendsIcon);
 		
 		JButton goalsButton = new JButton("");
 		goalsButton.setBounds(50, 234, 70, 66);
@@ -149,11 +149,11 @@ public class ProfileScreen {
 		workoutsLabel.setBounds(85, 406, 113, 19);
 		profileFrame.getContentPane().add(workoutsLabel);
 		
-		JLabel statsLabel = new JLabel("My Stats");
-		statsLabel.setForeground(Color.WHITE);
-		statsLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		statsLabel.setBounds(156, 304, 75, 19);
-		profileFrame.getContentPane().add(statsLabel);
+		JLabel trendsLabel = new JLabel("My Trends");
+		trendsLabel.setForeground(Color.WHITE);
+		trendsLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		trendsLabel.setBounds(156, 304, 93, 19);
+		profileFrame.getContentPane().add(trendsLabel);
 	
 }
 }

@@ -58,14 +58,14 @@ public class WorkoutAddedWindow {
 		wktAddedLabel.setForeground(SystemColor.window);
 		wktAddedLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
-		JButton backProfileButton = new JButton("Back to My Profile");
+		JButton backHomeButton = new JButton("Back to Home");
 		/**takes user back to the homepage
 		 * 
 		 */
-		backProfileButton.addActionListener(new ActionListener() {
+		backHomeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ProfileScreen ProfileScreen = new ProfileScreen();
-				ProfileScreen.displayProfileScreen();
+				HomeScreen homeScreen = new HomeScreen();
+				homeScreen.displayHomeScreen();
 			}
 		});
 		
@@ -102,10 +102,10 @@ public class WorkoutAddedWindow {
 					.addContainerGap())
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(68)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(addActivityButton)
-						.addComponent(backProfileButton, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(78, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(addActivityButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(backHomeButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+					.addContainerGap(69, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -115,7 +115,7 @@ public class WorkoutAddedWindow {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(wktAddedLabel)
 					.addGap(52)
-					.addComponent(backProfileButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addComponent(backHomeButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(addActivityButton, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(27, Short.MAX_VALUE))
