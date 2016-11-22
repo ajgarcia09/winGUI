@@ -21,6 +21,8 @@ import javax.swing.UIManager;
 import win.User;
 import java.awt.Button;
 import java.awt.Panel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ProfileScreen {
 
@@ -119,6 +121,16 @@ public class ProfileScreen {
 		goalsButton.setIcon(resizedGoalsIcon);
 		
 		JButton menuButton = new JButton("");
+		/**take user back to the menu window
+		 * 
+		 */
+		menuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuWindow menuWindow = new MenuWindow();
+				menuWindow.displayMenuWindow();
+				
+			}
+		});
 		menuButton.setBounds(231, 10, 38, 36);
 		profileFrame.getContentPane().add(menuButton);
 		ImageIcon menuIcon = new ImageIcon("C:\\Users\\AnaJacqueline\\Documents\\Adv OOP\\stuffForGUI\\menu-icon.png");

@@ -88,6 +88,15 @@ public class HomeScreen {
 		homeFrame.getContentPane().add(stepsTakenLabel);
 		
 		JButton menuButton = new JButton("");
+		/**takes the user to the menu window
+		 * 
+		 */
+		menuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuWindow menuWindow = new MenuWindow();
+				menuWindow.displayMenuWindow();
+			}
+		});
 		menuButton.setBounds(231, 10, 38, 36);
 		homeFrame.getContentPane().add(menuButton);
 		ImageIcon menuIcon = new ImageIcon("C:\\Users\\AnaJacqueline\\Documents\\Adv OOP\\stuffForGUI\\menu-icon.png");

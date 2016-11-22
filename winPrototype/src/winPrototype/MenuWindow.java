@@ -47,13 +47,31 @@ public class MenuWindow {
 		menuFrame.getContentPane().setBackground(SystemColor.textHighlight);
 
 		JButton homeButton = new JButton("Home");
-		homeButton.setBounds(108, 61, 59, 23);
+		/**take user back to homepage
+		 * 
+		 */
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HomeScreen homeScreen = new HomeScreen();
+				homeScreen.displayHomeScreen();
+			}
+		});
+		homeButton.setBounds(108, 61, 79, 23);
 
 		JButton profileButton = new JButton("Profile");
-		profileButton.setBounds(108, 110, 63, 23);
+		/**take user to the profile window
+		 * 
+		 */
+		profileButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProfileScreen profileScreen = new ProfileScreen();
+				profileScreen.displayProfileScreen();
+			}
+		});
+		profileButton.setBounds(108, 110, 79, 23);
 
 		JButton goalssButton = new JButton("Set Goals");
-		goalssButton.setBounds(108, 163, 77, 23);
+		goalssButton.setBounds(101, 163, 94, 23);
 
 		JButton remindersButton = new JButton("Set Reminders");
 		remindersButton.setBounds(101, 209, 101, 23);
@@ -103,7 +121,7 @@ public class MenuWindow {
 			public void actionPerformed(ActionEvent e) {
 				WinLoginWindow logWindow = new WinLoginWindow();
 				logWindow.displayWinLoginWindow();
-				System.out.println("Test change");
+		
 			}
 		});
 		logoutButton.setBounds(231, 389, 38, 36);
