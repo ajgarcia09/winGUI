@@ -112,6 +112,15 @@ public class ProfileScreen {
 		trendsButton.setIcon(resizedtrendsIcon);
 		
 		JButton goalsButton = new JButton("");
+		/**open ViewGoalsWindow
+		 * 
+		 */
+		goalsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ViewGoalsWindow vgWindow = new ViewGoalsWindow();
+				vgWindow.displaySetGoalsWindow();
+			}
+		});
 		goalsButton.setBounds(50, 234, 70, 66);
 		profileFrame.getContentPane().add(goalsButton);
 		ImageIcon goalsIcon = new ImageIcon("C:\\Users\\AnaJacqueline\\Documents\\Adv OOP\\stuffForGUI\\goalsLogo.png");

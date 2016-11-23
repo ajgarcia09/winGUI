@@ -71,16 +71,16 @@ public class MenuWindow {
 		profileButton.setBounds(108, 110, 79, 23);
 
 		JButton goalssButton = new JButton("Set Goals");
-		goalssButton.setBounds(101, 163, 94, 23);
+		goalssButton.setBounds(87, 161, 101, 23);
 
 		JButton remindersButton = new JButton("Set Reminders");
-		remindersButton.setBounds(101, 209, 101, 23);
+		remindersButton.setBounds(87, 209, 118, 23);
 
 		JButton btnNewButton_3 = new JButton("Workouts");
-		btnNewButton_3.setBounds(108, 261, 79, 23);
+		btnNewButton_3.setBounds(87, 261, 111, 23);
 
 		JButton btnNewButton_4 = new JButton("Settings");
-		btnNewButton_4.setBounds(108, 309, 71, 23);
+		btnNewButton_4.setBounds(93, 307, 94, 23);
 
 		JLabel lblMenu = new JLabel("Menu");
 		lblMenu.setBounds(10, 0, 69, 35);
