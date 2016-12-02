@@ -70,8 +70,17 @@ public class MenuWindow {
 		});
 		profileButton.setBounds(108, 110, 79, 23);
 
-		JButton goalssButton = new JButton("Set Goals");
-		goalssButton.setBounds(87, 161, 101, 23);
+		JButton setGoalsButton = new JButton("Set Goals");
+		/**display set goals window
+		 * 
+		 */
+		setGoalsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SetGoalsWindow setGoalsWdw = new SetGoalsWindow();
+				setGoalsWdw.displaySetGoalsWindow();
+			}
+		});
+		setGoalsButton.setBounds(87, 161, 101, 23);
 
 		JButton remindersButton = new JButton("Set Reminders");
 		remindersButton.setBounds(87, 209, 118, 23);
@@ -109,7 +118,7 @@ public class MenuWindow {
 		menuFrame.getContentPane().add(homeButton);
 		menuFrame.getContentPane().add(btnNewButton_3);
 		menuFrame.getContentPane().add(btnNewButton_4);
-		menuFrame.getContentPane().add(goalssButton);
+		menuFrame.getContentPane().add(setGoalsButton);
 		menuFrame.getContentPane().add(remindersButton);
 		menuFrame.getContentPane().add(lblMenu);
 		
