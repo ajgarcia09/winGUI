@@ -15,10 +15,6 @@ public class User {
 	private int accountID;
 	private String name;
 	private String gender;
-	private String userName;
-	private String email;
-	private String password;	
-	private boolean isNewMember;
 	private int age;
 	private int height;
 	private int weight;
@@ -34,26 +30,20 @@ public class User {
 	private ActivityLogger activityLogger = new ActivityLogger(accountID);
 	private HashSet<Activity> activities = new HashSet<Activity>();
 	private HashSet<DailyTrend> dailyTrends = new HashSet<DailyTrend>();
-	private HashSet<WeeklyTrend> weeklyTrends = new HashSet<WeeklyTrend>();
-	private HashSet<MonthlyTrend> MonthlyTrends = new HashSet<MonthlyTrend>();
+	private WeeklyTrend weeklyTrends = WeeklyTrend.getUser();
+	Calendar calendar = Calendar.getInstance();
+	int day = calendar.get(Calendar.DAY_OF_WEEK);
+	int dayCounter = 0;
+	public static final String[] daysOfTheWeek = { "Sunday", "Monday" , "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 	
-	public User(int accountID, String name, String gender, String userName, String email, String password, boolean isNewMember) {
+	
+	public User(int accountID, String name, String gender) {
 		this.accountID = accountID;
 		this.name = name;
 		this.gender =gender;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-		this.isNewMember = isNewMember;
+		
 	}
 	
-	/**@return accountID the user's account number
-	 * 
-	 */
-
-	public int getAccountID(){
-		return accountID;
-	}
 /**
  * @return name the user's name
  */
@@ -65,31 +55,8 @@ public class User {
 		return gender;
 	}
 	
-	/**
-	 * @return userName the user's username
-	 */
-	public String getUserName() {
-		return userName;
-	}
-	/**
-	 * @return email the user's email
-	 */
-	public String getEmail(){
-		return email;
-	}	
-	/**
-	 * @return password the user's password
-	 */
-	public String getPassword() {
-		return password;
-	}
 
-	/**
-	 * @return isNewMember whether the user has previously used the system or not
-	 */
-	public boolean getIsNewMember(){
-		return isNewMember;
-	}
+		
 	/**
 	 * @return age the user's age
 	 */
@@ -109,19 +76,7 @@ public class User {
 	public int getWeight(){
 		return weight;
 	}
-	/**
-	 * @return bmi the user's Body Mass Index (BMI)
-	 */
-	public int getBmi(){
-		return bmi;
-	}	
-/**
- * 
- * @param accountID the user's unique account number
- */
-	public void setAccountID(int accountID) {
-		this.accountID = accountID;
-	}
+	
 /**
  * 
  * @param name the user's name
@@ -133,35 +88,8 @@ public class User {
 	public void setGender(String gender){
 		this.gender = gender;
 	}
-/**
- * 
- * @param userName the user's choice of userName
- */
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-/**
- * 
- * @param email the user's email
- */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-/**
- * 
- * @param password the user's password
- */
-	public void setPassword(String password) {
-		this.password = password;
-	}
-/**
- * 
- * @param isNewMember whether the user is a new 
- * member or he or she has been previously registered
- */
-	public void setNewMember(boolean isNewMember) {
-		this.isNewMember = isNewMember;
-	}
+
+
 /**
  * 
  * @param age the user's age
@@ -183,13 +111,7 @@ public class User {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-/**
- * 
- * @param bmi the user's Body Mass Index (BMI)
- */
-	public void setBmi(int bmi) {
-		this.bmi = bmi;
-	}
+
 	
 	/**Creates a new object of type Activity and adds
 	 * it to the user's set of activities
@@ -219,14 +141,6 @@ public class User {
 		activities.add(a1);
 	}
 
-	/**Removes an activity from the user's set of activities
-	 * 
-	 * @param a1 an object of type Activity
-	 * @see User#activities
-	 */
-	public void removeActivity(Activity a1){
-		activities.remove(a1);
-	}
 	
 	/**Print the user's logged activities
 	 * by traversing its HashSet of type Activity
@@ -262,7 +176,7 @@ public class User {
 		int daySteps = 10000; //10,000 steps, fixed value for now
 		String month = "November";
 		int date = 13;
-		DailyTrend dayTrend = new DailyTrend(accountID, daySleep,dayWorkout,daySteps,month,date);
+		DailyTrend dayTrend = new DailyTrend(daySleep,dayWorkout,daySteps);
 		validateNumDayTrends();
 		dailyTrends.add(dayTrend);
 		return dayTrend;
@@ -276,8 +190,6 @@ public class User {
 		for(Iterator it = dailyTrends.iterator(); it.hasNext();){
 			DailyTrend currentDayTrend = (DailyTrend)it.next();
 			System.out.println("user: " + this.getName());
-			System.out.println("accountID = " + currentDayTrend.getAccountID());
-			System.out.println("month + date = " + currentDayTrend.getDate() + " " + currentDayTrend.getMonth());
 			System.out.println("sleepTime = " + currentDayTrend.getSleepTime());
 			System.out.println("workoutTime = " + currentDayTrend.getWorkoutTime());
 			System.out.println("numSteps = " + currentDayTrend.getNumSteps());
@@ -299,7 +211,7 @@ public class User {
 		if(numDayTrends >= 0 && numDayTrends <7)
 			numDayTrends++;
 		else{
-			newWeeklyTrend();
+			//newWeeklyTrend();
 			numWeekTrends++;
 			numDayTrends=0;
 		}
@@ -315,12 +227,18 @@ public class User {
 	 */
 	public int countDaySleepTime() {
 		int daySleep =0;
+		
+		if(day != calendar.get(Calendar.DAY_OF_WEEK)){
+			activities.clear();
+			dayCounter++;
+		}
 		for(Iterator it = activities.iterator(); it.hasNext();){
 			Activity currentActivity = (Activity)it.next();
 			System.out.println(currentActivity.getClass().getTypeName());
 			if(currentActivity.getClass().getTypeName().equals("Sleep"))
-				daySleep += currentActivity.getDuration();			
-		}
+				daySleep += currentActivity.getDuration();	
+			    }
+		weeklyTrends.addSleepTime(daySleep);
 		return daySleep;
 	}
 	
@@ -333,22 +251,39 @@ public class User {
 	 */
 	public int countDayWorkoutTime() {
 		int dayWorkout =0;
+
+		if(day != calendar.get(Calendar.DAY_OF_WEEK)){
+			activities.clear();
+			dayCounter++;
+		}
 		for(Iterator it = activities.iterator(); it.hasNext();){
 			Activity currentActivity = (Activity)it.next();
 			currentActivity.printActivityType(currentActivity);
-			if(currentActivity.getClass().getSuperclass().getTypeName().equals("Workout"))
+			if(currentActivity.getClass().getSuperclass().getTypeName().equals("Workout")){
 				dayWorkout += currentActivity.getDuration();
+
 			}
+		}
+		weeklyTrends.addWeeklyWorkoutTime(dayWorkout);
 		return dayWorkout;
 	}
-	public WeeklyTrend newWeeklyTrend(){
-		return null;
+	
+	/**Adds randomly generated steps
+	 * @return steps the total amount of steps the user had in a day
+	 * @see User#activities
+	 * @see Activity
+	 */
+	public int countDaySteps(){
+		if(day != calendar.get(Calendar.DAY_OF_WEEK)){
+			activities.clear();
+			dayCounter++;
+		}
+		Random generator = new Random();
+		int steps= generator.nextInt();
+		weeklyTrends.addSteps(steps);
+		return steps;
 	}
 	
-	public MonthlyTrend newMonthlyTrend(){
-		return null;
-	}
-
 	public void logRun(int runDistance, int runDuration) {
 		Activity a1 = this.activityLogger.logRun(runDistance, runDuration);
 		addActivity(a1);
@@ -365,6 +300,27 @@ public class User {
 		Activity a1 = this.activityLogger.logSleep(isNap, sleepDuration);
 		addActivity(a1);
 		
+	}
+	// this is used to traverse and print the amount of activities done during the week 
+	public void printWeekProgress(){
+		DailyTrend[] week = weeklyTrends.getDailyProgress();
+		for(int i = 0; i < week.length; i++){
+			System.out.println("The amount of sleep on " + daysOfTheWeek[i] +" was: " + week[i].sleepTime + " Min");
+			System.out.println("The amount of workout time on" + daysOfTheWeek[i] +" is: " + week[i].workoutTime + " Min");
+			System.out.println("The amount of steps on" + daysOfTheWeek[i] +" is: " + week[i].steps + " Min");
+		}
+	}
+	// this is used to traverse the array list of weeks to compare week progress
+	public void printWeeklyProgress(){
+		ArrayList<WeeklyTrend> weeks = weeklyTrends.getWeeklyProgress();
+		int i = weeklyTrends.getCurrentWeek();
+		int counter = 5;
+		for(; counter >= 0; i--){
+			System.out.println("The amount of sleep on week"+ i +" was: " + weeks.get(i).sleepTime + " Min");
+			System.out.println("The amount of workout time on week" + i +" is: " + weeks.get(i).workoutTime + " Min");
+			System.out.println("The amount of steps on week" + i +" is: " + weeks.get(i).steps + " Min");
+			counter --;
+		}
 	}
 
 }
