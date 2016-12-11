@@ -59,9 +59,7 @@ public class DailyTrend extends Trend{
 		this.date = date;
 	}
 
-	public String getNumSteps() {
-		return 
-	}
+	
 	
 
 }

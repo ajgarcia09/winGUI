@@ -13,9 +13,6 @@ public class WeeklyTrend extends Trend{
 	private static WeeklyTrend user = new WeeklyTrend(); // initialize one instance
 	private DailyTrend[] dailyValues = new DailyTrend[7]; // keeps track of the activity time done in the past seven days
 	private ArrayList<WeeklyTrend> weeks = new ArrayList<WeeklyTrend>(); // stores the total activity time of the week in a single ArrayList Index
-	int sleepTime; 
-	int workoutTime; 
-	int steps;
 	int currentDay = 0;
 	int currentWEEKindex = 0;// keep track of index of the current week 
 	
@@ -25,9 +22,6 @@ public class WeeklyTrend extends Trend{
 	
 	private WeeklyTrend(int steps, int sleepTime, int workoutTime){
 		super(steps, sleepTime, workoutTime);
-		this.steps = steps;
-		this.sleepTime = sleepTime;
-		this.workoutTime = workoutTime;
 	}
 	
 	/**Adds total workout time during a day
