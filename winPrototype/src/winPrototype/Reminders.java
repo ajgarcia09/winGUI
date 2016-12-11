@@ -131,5 +131,6 @@ public class Reminders extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		reminders.put(rem, time);
+		JOptionPane.showMessageDialog(null, "Succesfully added");
 		}
 }
