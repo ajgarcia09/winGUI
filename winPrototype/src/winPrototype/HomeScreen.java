@@ -27,6 +27,8 @@ public class HomeScreen {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		myThread checkReminders = new myThread();
+		checkReminders.start();
 		displayHomeScreen();
 	}
 
