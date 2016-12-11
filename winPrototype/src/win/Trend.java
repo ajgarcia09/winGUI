@@ -10,27 +10,19 @@ package win;
  *
  */
 public class Trend {
-	private int accountID;
-	private int sleepTime;
-	private int workoutTime;
-	private int numSteps;
-	private String month;
+	protected int sleepTime;
+	protected int workoutTime;
+	protected int steps;
 	
-	public Trend(int accountID, int sleepTime, int workoutTime, int numSteps, String month) {
-		this.accountID = accountID;
+	Trend(){
+		
+	}
+	public Trend(int sleepTime, int workoutTime,  int steps) {
 		this.sleepTime = sleepTime;
 		this.workoutTime = workoutTime;
-		this.numSteps = numSteps;
-		this.month = month;
+		this.steps = steps;
 	}
 
-	/**
-	 * 
-	 * @return accountID - the user's account number
-	 */
-	public int getAccountID() {
-		return accountID;
-	}
 
 	/**
 	 * 
@@ -44,35 +36,13 @@ public class Trend {
 	 * 
 	 * @return workoutTime - the user's total workout time
 	 */
-	public int getWorkoutTime() {
+	public int getWorkoutTime(){
 		return workoutTime;
 	}
 
-	/**
-	 * 
-	 * @return numSteps - the user's total number of steps taken
-	 */
-	public int getNumSteps() {
-		return numSteps;
-	}
 
-	/**
-	 * 
-	 * @return month - the month in which
-	 * the current activity is being logged into
-	 */
-	public String getMonth() {
-		return month;
-	}
-	/**
-	 * 
-	 * @param accountID - the user's unique 
-	 * account number which is used to link
-	 * the user to his or her Activities
-	 */
-	public void setAccountID(int accountID) {
-		this.accountID = accountID;
-	}
+	
+
 
 	/**
 	 * 
@@ -92,13 +62,5 @@ public class Trend {
 		this.workoutTime = workoutTime;
 	}
 
-	/**
-	 * 
-	 * @param numSteps the user's total
-	 * number of steps taken
-		 */
-	public void setNumSteps(int numSteps) {
-		this.numSteps = numSteps;
-	}
 
 }

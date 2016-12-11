@@ -13,9 +13,12 @@ import java.util.*;
 public class DailyTrend extends Trend{
 	private boolean isNewDay = true;
 	private int date;
-
-	public DailyTrend(int accountID, int sleepTime, int workoutTime, int numSteps,String month,int date) {
-		super(accountID,sleepTime,workoutTime,numSteps, month);
+	
+	public DailyTrend(){
+		
+	}
+	public DailyTrend(int sleepTime, int workoutTime, int numSteps) {
+		super(sleepTime, workoutTime,numSteps);
 		this.date = date;		
 	}
 	
@@ -54,6 +57,10 @@ public class DailyTrend extends Trend{
 	 */
 	public void setDate(int date){
 		this.date = date;
+	}
+
+	public String getNumSteps() {
+		return 
 	}
 	
 
