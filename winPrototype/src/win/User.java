@@ -192,7 +192,7 @@ public class User {
 			System.out.println("user: " + this.getName());
 			System.out.println("sleepTime = " + currentDayTrend.getSleepTime());
 			System.out.println("workoutTime = " + currentDayTrend.getWorkoutTime());
-			System.out.println("numSteps = " + currentDayTrend.getNumSteps());
+			//System.out.println("numSteps = " + currentDayTrend.getSteps());
 		}
 	}	
 
@@ -229,7 +229,9 @@ public class User {
 		int daySleep =0;
 		
 		if(day != calendar.get(Calendar.DAY_OF_WEEK)){
+			day =  calendar.get(Calendar.DAY_OF_WEEK);
 			activities.clear();
+			weeklyTrends.setCurrentDay(weeklyTrends.getCurrentDay() + 1);
 			dayCounter++;
 		}
 		for(Iterator it = activities.iterator(); it.hasNext();){
@@ -253,7 +255,9 @@ public class User {
 		int dayWorkout =0;
 
 		if(day != calendar.get(Calendar.DAY_OF_WEEK)){
+			day = calendar.get(Calendar.DAY_OF_WEEK);
 			activities.clear();
+			weeklyTrends.setCurrentDay(weeklyTrends.getCurrentDay() + 1);
 			dayCounter++;
 		}
 		for(Iterator it = activities.iterator(); it.hasNext();){
@@ -275,7 +279,9 @@ public class User {
 	 */
 	public int countDaySteps(){
 		if(day != calendar.get(Calendar.DAY_OF_WEEK)){
+			day = calendar.get(Calendar.DAY_OF_WEEK);
 			activities.clear();
+			weeklyTrends.setCurrentDay(weeklyTrends.getCurrentDay() + 1);
 			dayCounter++;
 		}
 		Random generator = new Random();
