@@ -60,6 +60,14 @@ public class Reminders extends JFrame implements ActionListener {
 		dateAndTime = new JTextField();
 		dateAndTime.setColumns(10);
 		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	MenuWindow logWindow = new MenuWindow();
+				logWindow.displayMenuWindow();
+            }
+        });
 		JButton btnAddReminder = new JButton("Add Reminder");
 		String rem = reminder.getText();
 	    String time = reminder.getText();
@@ -70,14 +78,16 @@ public class Reminders extends JFrame implements ActionListener {
 		JLabel lblEnterDateDdmmyy = new JLabel("Enter Date: dd/mm/yy HH:MM(24 hr format)");
 		
 		JLabel lblExample = new JLabel("Example: 11/12/16 14:20");
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(147)
 					.addComponent(reminder, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(159, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(168)
 					.addComponent(lblEnterReminder)
 					.addContainerGap(177, Short.MAX_VALUE))
@@ -85,21 +95,25 @@ public class Reminders extends JFrame implements ActionListener {
 					.addContainerGap(91, Short.MAX_VALUE)
 					.addComponent(lblEnterDateDdmmyy)
 					.addGap(71))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(134)
 					.addComponent(lblExample)
-					.addContainerGap(262, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addContainerGap(143, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(148)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnAddReminder)
 						.addComponent(dateAndTime, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(277, Short.MAX_VALUE))
+					.addContainerGap(158, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(btnBack)
+					.addContainerGap(323, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(57)
+					.addComponent(btnBack)
+					.addGap(28)
 					.addComponent(lblEnterReminder)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(reminder, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
